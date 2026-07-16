@@ -9,6 +9,8 @@
   --gold: #d7a94f;
   --line: #d8d7cd;
   --muted: #667068;
+  --font-sans: "Avenir Next", Avenir, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-display: Georgia, "Times New Roman", serif;
 }
 
 * { box-sizing: border-box; }

@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
-import { DM_Sans, Fraunces } from "next/font/google";
 import "./globals.css";
 
-const sans = DM_Sans({ variable: "--font-sans", subsets: ["latin"] });
-const display = Fraunces({ variable: "--font-display", subsets: ["latin"] });
-
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"),
   title: "VenueFind — Find event venues in Freetown",
   description: "Discover event venues across Freetown and ask VenueFind to confirm your preferred date before you travel.",
   openGraph: {
@@ -22,5 +19,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body className={`${sans.variable} ${display.variable}`}>{children}</body></html>;
+  return <html lang="en"><body>{children}</body></html>;
 }
