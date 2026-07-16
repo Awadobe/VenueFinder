@@ -34,25 +34,29 @@ export default function Home() {
       <section className="hero-new">
         <Image src="/images/venuefind-hero.png" alt="A beach wedding venue prepared at sunset" fill priority sizes="100vw" className="hero-photo" />
         <div className="hero-shade" />
-        <div className="hero-content">
-          <p className="hero-kicker"><span /> Venue discovery across Sierra Leone</p>
-          <h1>Find the space that makes <em>the moment.</em></h1>
-          <p>From weddings and birthdays to conferences and workshops, discover extraordinary venues for whatever you are planning.</p>
-        </div>
+        <div className="hero-split">
+          <div className="hero-content">
+            <p className="hero-kicker"><span /> Venue discovery across Sierra Leone</p>
+            <h1>Find the space that makes <em>the moment.</em></h1>
+            <p>From weddings and birthdays to conferences and workshops, discover extraordinary venues for whatever you are planning.</p>
+            <div className="hero-trust"><span>✓ Verified venue details</span><span>✓ Clear date status</span><span>✓ Free to search</span></div>
+          </div>
 
-        <form className="hero-search" action="/venues">
-          <label className="search-event">
-            <span>What are you planning?</span>
-            <select name="event" defaultValue="">
-              <option value="" disabled>Choose an event type</option>
-              <option>Wedding</option><option>Birthday</option><option>Workshop</option><option>Corporate event</option><option>Conference</option><option>Dinner or gala</option>
-            </select>
-          </label>
-          <label><span>Where?</span><select name="area"><option>Anywhere in the Western Area</option><option>Central Freetown</option><option>East Freetown</option><option>West Freetown</option><option>Western Area Rural</option></select></label>
-          <label><span>Preferred date</span><input name="date" type="date" /></label>
-          <button className="button button-primary" type="submit">Find venues <span aria-hidden="true">→</span></button>
-        </form>
-        <div className="hero-trust"><span>✓ Verified venue details</span><span>✓ Clear date status</span><span>✓ Free to search</span></div>
+          <form className="hero-search" action="/venues">
+            <div className="search-card-heading"><p>Start your search</p><h2>What are you planning?</h2></div>
+            <label className="search-event">
+              <span>Event type</span>
+              <select name="event" defaultValue="">
+                <option value="" disabled>Choose an event type</option>
+                <option>Wedding</option><option>Birthday</option><option>Workshop</option><option>Corporate event</option><option>Conference</option><option>Dinner or gala</option>
+              </select>
+            </label>
+            <label><span>Preferred area</span><select name="area"><option>Anywhere in the Western Area</option><option>Central Freetown</option><option>East Freetown</option><option>West Freetown</option><option>Western Area Rural</option></select></label>
+            <div className="hero-form-row"><label><span>Preferred date</span><input name="date" type="date" /></label><label><span>Number of guests</span><input name="guests" type="number" min="1" placeholder="e.g. 150" /></label></div>
+            <button className="button button-primary" type="submit">Find venues <span aria-hidden="true">→</span></button>
+            <small>Searching is free. No account is required.</small>
+          </form>
+        </div>
       </section>
 
       <section className="category-section" id="categories">
