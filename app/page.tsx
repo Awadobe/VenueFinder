@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 const sampleVenues = [
-  { name: "Oceanview Conference Hall", area: "West Freetown", type: "Conference space", capacity: "Up to 140 guests", image: "/images/sample-conference.png" },
-  { name: "Tropical Garden Venue", area: "Western Area", type: "Garden venue", capacity: "Up to 180 guests", image: "/images/sample-garden.png" },
-  { name: "Sunset Celebration Hall", area: "Central Freetown", type: "Indoor hall", capacity: "Up to 120 guests", image: "/images/sample-celebration.png" },
+  { slug: "oceanview-conference-hall", name: "Oceanview Conference Hall", area: "West Freetown", type: "Conference space", capacity: "Up to 140 guests", image: "/images/sample-conference.png" },
+  { slug: "tropical-garden-venue", name: "Tropical Garden Venue", area: "Western Area", type: "Garden venue", capacity: "Up to 180 guests", image: "/images/sample-garden.png" },
+  { slug: "sunset-celebration-hall", name: "Sunset Celebration Hall", area: "Central Freetown", type: "Indoor hall", capacity: "Up to 120 guests", image: "/images/sample-celebration.png" },
 ];
 
 const categories = [
@@ -72,7 +72,7 @@ export default function Home() {
           {sampleVenues.map((venue) => (
             <article className="venue-card" key={venue.name}>
               <div className="venue-image"><Image src={venue.image} alt={venue.name} fill sizes="(max-width: 700px) 100vw, 33vw" /><span className="sample-label">Sample profile</span><span className="status-badge pending">● Confirmation required</span></div>
-              <div className="venue-card-body"><p className="venue-type">{venue.type}</p><h3>{venue.name}</h3><p className="venue-location">⌖ {venue.area}</p><div className="venue-meta"><span>{venue.capacity}</span><span>Price on confirmation</span></div><Link href="/venues" className="button button-card">View details <span>→</span></Link></div>
+              <div className="venue-card-body"><p className="venue-type">{venue.type}</p><h3>{venue.name}</h3><p className="venue-location">⌖ {venue.area}</p><div className="venue-meta"><span>{venue.capacity}</span><span>Price on confirmation</span></div><Link href={`/venues/${venue.slug}`} className="button button-card">View details <span>→</span></Link></div>
             </article>
           ))}
         </div>
