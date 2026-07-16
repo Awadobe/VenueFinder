@@ -1,211 +1,91 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const sampleVenues = [
-  {
-    name: "Waterfront celebration hall",
-    area: "Aberdeen",
-    type: "Indoor hall",
-    capacity: "Up to 300 guests",
-    price: "Price confirmation required",
-    status: "Confirmation required",
-    tone: "gold",
-  },
-  {
-    name: "Hilltop garden venue",
-    area: "Hill Station",
-    type: "Outdoor venue",
-    capacity: "Up to 180 guests",
-    price: "Price confirmation required",
-    status: "Confirmation required",
-    tone: "green",
-  },
-  {
-    name: "City workshop space",
-    area: "Central Freetown",
-    type: "Meeting space",
-    capacity: "Up to 90 guests",
-    price: "Price confirmation required",
-    status: "Confirmation required",
-    tone: "blue",
-  },
+  { name: "Oceanview Conference Hall", area: "West Freetown", type: "Conference space", capacity: "Up to 140 guests", image: "/images/sample-conference.png" },
+  { name: "Tropical Garden Venue", area: "Western Area", type: "Garden venue", capacity: "Up to 180 guests", image: "/images/sample-garden.png" },
+  { name: "Sunset Celebration Hall", area: "Central Freetown", type: "Indoor hall", capacity: "Up to 120 guests", image: "/images/sample-celebration.png" },
 ];
 
-const eventTypes = [
-  ["Wedding", "Ceremonies, receptions and family celebrations"],
-  ["Birthday", "From intimate dinners to milestone parties"],
-  ["Workshop", "Training rooms with the facilities your team needs"],
-  ["Corporate", "Meetings, launches, conferences and formal events"],
+const categories = [
+  ["💍", "Weddings"],
+  ["🎂", "Birthdays"],
+  ["🏢", "Corporate"],
+  ["🎤", "Conferences"],
 ];
 
 export default function Home() {
   return (
     <main>
       <header className="site-header">
-        <Link className="brand" href="/" aria-label="VenueFind home">
-          <span className="brand-mark">V</span>
-          <span>VenueFind</span>
+        <Link className="brand" href="/" aria-label="venueFind home">
+          <span className="brand-pin" aria-hidden="true">●</span>
+          <span>venue<span>Find</span></span>
         </Link>
         <nav className="desktop-nav" aria-label="Main navigation">
-          <Link href="/venues">Find venues</Link>
+          <Link href="/venues">Discover</Link>
+          <a href="#categories">Categories</a>
           <Link href="/how-it-works">How it works</Link>
           <Link href="/list-venue">For venue owners</Link>
         </nav>
-        <Link className="button button-small button-outline" href="/list-venue">
-          List your venue
-        </Link>
+        <Link className="button button-small button-outline" href="/list-venue">List your venue</Link>
       </header>
 
-      <section className="hero">
-        <div className="hero-copy">
-          <p className="eyebrow">Venue discovery for Sierra Leone</p>
-          <h1>Find the right space. <em>Before you make the trip.</em></h1>
-          <p className="hero-lede">
-            Compare event venues across Freetown, understand what is included,
-            and ask us to confirm your date before you travel.
-          </p>
-          <div className="trust-row" aria-label="Service benefits">
-            <span>Verified venue details</span>
-            <span>Clear date status</span>
-            <span>WhatsApp assistance</span>
-          </div>
+      <section className="hero-new">
+        <Image src="/images/venuefind-hero.png" alt="A beach wedding venue prepared at sunset" fill priority sizes="100vw" className="hero-photo" />
+        <div className="hero-shade" />
+        <div className="hero-content">
+          <p className="hero-kicker"><span /> Venue discovery across Sierra Leone</p>
+          <h1>Find the space that makes <em>the moment.</em></h1>
+          <p>From weddings and birthdays to conferences and workshops, discover extraordinary venues for whatever you are planning.</p>
         </div>
 
-        <form className="search-panel" action="/venues">
-          <div className="search-heading">
-            <div>
-              <p className="overline">Start your search</p>
-              <h2>What are you planning?</h2>
-            </div>
-            <span className="search-step">01</span>
-          </div>
-          <label>
-            Event type
-            <select name="event">
-              <option value="">Choose an event</option>
-              <option>Wedding</option>
-              <option>Birthday</option>
-              <option>Workshop</option>
-              <option>Corporate event</option>
-              <option>Conference</option>
-              <option>Dinner or gala</option>
+        <form className="hero-search" action="/venues">
+          <label className="search-event">
+            <span>What are you planning?</span>
+            <select name="event" defaultValue="">
+              <option value="" disabled>Choose an event type</option>
+              <option>Wedding</option><option>Birthday</option><option>Workshop</option><option>Corporate event</option><option>Conference</option><option>Dinner or gala</option>
             </select>
           </label>
-          <div className="form-grid">
-            <label>
-              Preferred date
-              <input name="date" type="date" />
-            </label>
-            <label>
-              Number of guests
-              <input name="guests" type="number" min="1" placeholder="e.g. 150" />
-            </label>
-          </div>
-          <label>
-            Preferred area
-            <select name="area">
-              <option value="">Anywhere in the Western Area</option>
-              <option>Central Freetown</option>
-              <option>East Freetown</option>
-              <option>West Freetown</option>
-              <option>Western Area Rural</option>
-            </select>
-          </label>
-          <button className="button button-primary button-wide" type="submit">
-            Show suitable venues <span aria-hidden="true">→</span>
-          </button>
-          <p className="form-note">Searching is free. No account is required.</p>
+          <label><span>Where?</span><select name="area"><option>Anywhere in the Western Area</option><option>Central Freetown</option><option>East Freetown</option><option>West Freetown</option><option>Western Area Rural</option></select></label>
+          <label><span>Preferred date</span><input name="date" type="date" /></label>
+          <button className="button button-primary" type="submit">Find venues <span aria-hidden="true">→</span></button>
         </form>
+        <div className="hero-trust"><span>✓ Verified venue details</span><span>✓ Clear date status</span><span>✓ Free to search</span></div>
       </section>
 
-      <section className="status-explainer">
-        <div className="section-intro compact">
-          <p className="eyebrow">No misleading green ticks</p>
-          <h2>Availability that says what we actually know.</h2>
-        </div>
-        <div className="status-list">
-          <article>
-            <span className="status-dot available" />
-            <div><h3>Available — verified</h3><p>Recently confirmed by the venue. We still reconfirm before you proceed.</p></div>
-          </article>
-          <article>
-            <span className="status-dot booked" />
-            <div><h3>Booked</h3><p>The venue has told us that the selected date is unavailable.</p></div>
-          </article>
-          <article>
-            <span className="status-dot required" />
-            <div><h3>Confirmation required</h3><p>We need a fresh response from the venue before giving you an answer.</p></div>
-          </article>
+      <section className="category-section" id="categories">
+        <div className="section-title-row"><div><p className="eyebrow">Explore by occasion</p><h2>Whatever you&apos;re celebrating, start here.</h2></div><Link href="/venues">See all venues →</Link></div>
+        <div className="category-grid">
+          {categories.map(([icon, name]) => <Link href={`/venues?event=${name}`} className="category-card" key={name}><span className="category-icon">{icon}</span><strong>{name}</strong><span className="category-arrow">→</span></Link>)}
         </div>
       </section>
 
       <section className="venues-section">
-        <div className="section-heading-row">
-          <div className="section-intro">
-            <p className="eyebrow">Pilot catalogue</p>
-            <h2>Spaces for the moments that matter.</h2>
-            <p>These sample profiles show the information standard. Real venues will only be published after partner verification.</p>
-          </div>
-          <Link className="text-link" href="/venues">Browse all venues →</Link>
-        </div>
+        <div className="section-title-row"><div><p className="eyebrow">Featured in Freetown</p><h2>Spaces worth discovering.</h2><p>Representative pilot profiles showing the standard every verified venue will meet.</p></div><Link href="/venues">Browse all venues →</Link></div>
         <div className="venue-grid">
-          {sampleVenues.map((venue, index) => (
+          {sampleVenues.map((venue) => (
             <article className="venue-card" key={venue.name}>
-              <div className={`venue-visual ${venue.tone}`}>
-                <span className="sample-label">Sample profile</span>
-                <span className="visual-number">0{index + 1}</span>
-                <div className="architectural-shape" />
-              </div>
-              <div className="venue-card-body">
-                <div className="status-pill"><span className="status-dot required" />{venue.status}</div>
-                <h3>{venue.name}</h3>
-                <p>{venue.area} · {venue.type}</p>
-                <div className="venue-meta"><span>{venue.capacity}</span><span>{venue.price}</span></div>
-                <Link href="/venues" className="card-link">View profile <span>↗</span></Link>
-              </div>
+              <div className="venue-image"><Image src={venue.image} alt={venue.name} fill sizes="(max-width: 700px) 100vw, 33vw" /><span className="sample-label">Sample profile</span><span className="status-badge pending">● Confirmation required</span></div>
+              <div className="venue-card-body"><p className="venue-type">{venue.type}</p><h3>{venue.name}</h3><p className="venue-location">⌖ {venue.area}</p><div className="venue-meta"><span>{venue.capacity}</span><span>Price on confirmation</span></div><Link href="/venues" className="button button-card">View details <span>→</span></Link></div>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="event-section">
-        <div className="section-intro compact light">
-          <p className="eyebrow">One search, different occasions</p>
-          <h2>Start with your event—not a list of hall names.</h2>
-        </div>
-        <div className="event-grid">
-          {eventTypes.map(([title, description], index) => (
-            <Link href={`/venues?event=${title}`} className="event-card" key={title}>
-              <span className="event-index">0{index + 1}</span>
-              <h3>{title}</h3>
-              <p>{description}</p>
-              <span className="event-arrow">→</span>
-            </Link>
-          ))}
-        </div>
+      <section className="availability-section">
+        <div><p className="eyebrow amber">Availability without guesswork</p><h2>Know what the date status really means.</h2><p>We do not put a green tick on old information. VenueFind shows when a date was confirmed and asks the venue for a fresh answer when necessary.</p><Link href="/how-it-works" className="button button-light">How confirmation works →</Link></div>
+        <div className="status-cards"><article><span className="status-symbol available">✓</span><div><h3>Available — verified</h3><p>Recently confirmed by an authorized venue contact.</p></div></article><article><span className="status-symbol pending">…</span><div><h3>Confirmation required</h3><p>We need a fresh response before giving you an answer.</p></div></article><article><span className="status-symbol booked">×</span><div><h3>Booked</h3><p>The venue has reported that date as unavailable.</p></div></article></div>
       </section>
 
       <section className="how-section">
-        <div className="section-intro compact">
-          <p className="eyebrow">How VenueFind works</p>
-          <h2>Less running around. Better information.</h2>
-        </div>
-        <ol className="steps">
-          <li><span>1</span><div><h3>Tell us what you need</h3><p>Share your date, event, guest count, area and budget.</p></div></li>
-          <li><span>2</span><div><h3>Compare suitable spaces</h3><p>Review useful venue details, costs, facilities and date status.</p></div></li>
-          <li><span>3</span><div><h3>Ask us to confirm</h3><p>We contact the venue and help arrange an inspection when needed.</p></div></li>
-        </ol>
-        <div className="cta-strip">
-          <div><p className="eyebrow">Own or manage a venue?</p><h2>Put your space in front of people actively planning events.</h2></div>
-          <Link className="button button-light" href="/list-venue">Join the pilot →</Link>
-        </div>
+        <div className="section-title-row"><div><p className="eyebrow">Simple from search to inspection</p><h2>Find it. Confirm it. Go see it.</h2></div></div>
+        <ol className="steps"><li><span>01</span><div><h3>Tell us the occasion</h3><p>Share your event, date, guest count, preferred area and budget.</p></div></li><li><span>02</span><div><h3>Discover your options</h3><p>Compare spaces, facilities, policies and transparent date statuses.</p></div></li><li><span>03</span><div><h3>Confirm and inspect</h3><p>We contact the venue and help arrange an inspection when needed.</p></div></li></ol>
+        <div className="cta-strip"><div><p>FOR VENUE OWNERS</p><h2>Turn your space into someone&apos;s perfect occasion.</h2></div><Link className="button button-light" href="/list-venue">Join the venueFind pilot →</Link></div>
       </section>
 
-      <footer>
-        <div className="footer-brand"><span className="brand-mark">V</span><strong>VenueFind</strong></div>
-        <p>Verified venue discovery and date confirmation for Freetown and the Western Area.</p>
-        <nav><Link href="/venues">Find venues</Link><Link href="/how-it-works">How it works</Link><Link href="/list-venue">List your venue</Link></nav>
-        <small>Stage 1 pilot · Sierra Leone</small>
-      </footer>
+      <footer><div className="footer-brand"><span className="brand-pin">●</span><strong>venueFind</strong></div><p>Extraordinary venue discovery and honest date confirmation for Sierra Leone.</p><nav><Link href="/venues">Discover</Link><Link href="/how-it-works">How it works</Link><Link href="/list-venue">List your venue</Link></nav><small>Stage 1 pilot · Freetown, Sierra Leone</small></footer>
     </main>
   );
 }

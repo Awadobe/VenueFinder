@@ -3,17 +3,17 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"),
-  title: "VenueFind — Find event venues in Freetown",
-  description: "Discover event venues across Freetown and ask VenueFind to confirm your preferred date before you travel.",
+  title: "venueFind — Extraordinary venues across Sierra Leone",
+  description: "Find memorable spaces for weddings, birthdays, conferences, workshops and more—with clear venue details and honest date confirmation.",
   openGraph: {
-    title: "VenueFind — Find the right space before you make the trip",
-    description: "Verified event venue discovery and date confirmation for Freetown, Sierra Leone.",
-    images: [{ url: "/og.png", width: 1731, height: 909, alt: "VenueFind — Find the right space before you make the trip" }],
+    title: "venueFind — Find the space that makes the moment",
+    description: "Extraordinary venue discovery and honest date confirmation for Sierra Leone.",
+    images: [{ url: "/og.png", width: 1731, height: 909, alt: "A beach wedding venue prepared at sunset" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "VenueFind — Find the right space before you make the trip",
-    description: "Verified event venue discovery and date confirmation for Freetown, Sierra Leone.",
+    title: "venueFind — Find the space that makes the moment",
+    description: "Extraordinary venue discovery and honest date confirmation for Sierra Leone.",
     images: ["/og.png"],
   },
 };
