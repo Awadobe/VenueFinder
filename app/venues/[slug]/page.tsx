@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getVenue, venues } from "@/lib/venues";
+import AvailabilityBooking from "./AvailabilityBooking";
 
 export function generateStaticParams() {
   return venues.map((venue) => ({ slug: venue.slug }));
@@ -35,7 +36,7 @@ export default async function VenueDetailPage({ params }: { params: Promise<{ sl
           <section className="detail-section split-info"><div><p className="eyebrow">Usually included</p><h2>Included with the space</h2><ul>{venue.included.map(item => <li key={item}>✓ {item}</li>)}</ul></div><div><p className="eyebrow">Important conditions</p><h2>Rules to confirm</h2><ul>{venue.rules.map(item => <li key={item}>• {item}</li>)}</ul></div></section>
         </div>
 
-        <aside className="detail-sidebar"><div className="enquiry-card"><p className="eyebrow">Interested in this venue?</p><h2>Check your date</h2><p>Tell us what you are planning. VenueFind will contact the authorized venue representative for a fresh answer.</p><label>Event date<input type="date" /></label><label>Event type<select><option>Wedding</option><option>Birthday</option><option>Workshop</option><option>Corporate event</option><option>Conference</option></select></label><label>Number of guests<input type="number" min="1" placeholder="e.g. 120" /></label><button className="button button-primary">Request confirmation →</button><button className="button button-outline">Request an inspection</button><small>This does not reserve the venue. The enquiry service is not live yet.</small></div></aside>
+        <aside className="detail-sidebar"><AvailabilityBooking venueName={venue.name} /></aside>
       </div>
     </div>
   </main>;
