@@ -92,15 +92,15 @@ button, select { cursor: pointer; }
 .venue-meta { display: flex; justify-content: space-between; gap: 10px; margin: 17px 0; padding-top: 15px; border-top: 1px solid var(--line); font-size: 11px; font-weight: 650; }
 .button-card { width: 100%; min-height: 42px; background: var(--orange); color: white; font-size: 11px; }
 
-.availability-section { padding: 90px clamp(20px, 7vw, 110px); background: var(--ocean); color: white; display: grid; grid-template-columns: .85fr 1.15fr; gap: 80px; align-items: center; }
-.availability-section > div:first-child > p:not(.eyebrow) { color: #c4d4d2; line-height: 1.7; margin: 22px 0 30px; }
+.availability-section { padding: 90px clamp(20px, 7vw, 110px); background: linear-gradient(125deg, #fff9f2, #faf6f2); color: var(--espresso); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); display: grid; grid-template-columns: .85fr 1.15fr; gap: 80px; align-items: center; }
+.availability-section > div:first-child > p:not(.eyebrow) { color: var(--muted); line-height: 1.7; margin: 22px 0 30px; }
 .eyebrow.amber { color: #ffc74f; }
 .status-cards { display: grid; gap: 12px; }
-.status-cards article { display: flex; align-items: center; gap: 17px; padding: 20px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.14); border-radius: 15px; }
+.status-cards article { display: flex; align-items: center; gap: 17px; padding: 20px; background: white; border: 1px solid var(--line); border-radius: 15px; box-shadow: 0 8px 24px rgba(80,54,39,.05); }
 .status-cards h3 { margin: 0 0 4px; font-size: 15px; font-weight: 650; }
-.status-cards p { margin: 0; color: #c4d4d2; font-size: 12px; line-height: 1.5; }
+.status-cards p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
 .status-symbol { width: 38px; height: 38px; flex: 0 0 auto; display: grid; place-items: center; border-radius: 50%; font-weight: 900; }
-.status-symbol.available { background: #d8f4e5; color: #15603c; }
+.status-symbol.available { background: var(--ocean); color: white; }
 .status-symbol.pending { background: #fff0c7; color: #8a5700; }
 .status-symbol.booked { background: #ffe1dc; color: #9a3022; }
 

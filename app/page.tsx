@@ -79,7 +79,7 @@ export default function Home() {
       </section>
 
       <section className="availability-section">
-        <div><p className="eyebrow amber">Availability without guesswork</p><h2>Know what the date status really means.</h2><p>We do not put a green tick on old information. VenueFind shows when a date was confirmed and asks the venue for a fresh answer when necessary.</p><Link href="/how-it-works" className="button button-light">How confirmation works →</Link></div>
+        <div><p className="eyebrow">Availability without guesswork</p><h2>Know what the date status really means.</h2><p>We do not put a green tick on old information. VenueFind shows when a date was confirmed and asks the venue for a fresh answer when necessary.</p><Link href="/how-it-works" className="button button-outline">How confirmation works →</Link></div>
         <div className="status-cards"><article><span className="status-symbol available">✓</span><div><h3>Available — verified</h3><p>Recently confirmed by an authorized venue contact.</p></div></article><article><span className="status-symbol pending">…</span><div><h3>Confirmation required</h3><p>We need a fresh response before giving you an answer.</p></div></article><article><span className="status-symbol booked">×</span><div><h3>Booked</h3><p>The venue has reported that date as unavailable.</p></div></article></div>
       </section>
 
